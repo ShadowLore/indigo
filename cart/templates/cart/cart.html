@@ -1,0 +1,145 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<style>
+    @media (min-width: 1025px) {
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+
+
+
+
+
+@media (max-width: 991px) {
+.card-registration-2  {
+border-bottom-left-radius: 16px;
+border-bottom-right-radius: 16px;
+}
+}
+
+a{
+    color:black;
+    text-decoration:none;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 1rem 3rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: #f44336;
+  color: white;
+  border: 2px solid red;
+  font-family: first, italic;
+}
+
+.button1:hover {
+  background-color: red;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<section class=" h-custom">
+    <div class="container py-5">
+        <h2 class="mb-3" style=" margin-top:4rem">Ваша корзина</h2>
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="card card-registration card-registration-2 " style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <div class="col-lg-8">
+                                <div class="p-5 " >
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col"> &nbsp;Фото</th>
+                                            <th scope="col"> &nbsp;Наименование</th>
+                                            <th scope="col">Количество</th>
+                                            <th scope="col">Цена</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                    {% for cart in carts %}
+                                    <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                        <div class="col-md-2 col-lg-2 col-xl-2">
+
+                                            <img class="card-img-top" src="{{ cart.get.product.image.url }}"
+                                                 alt="Card image cap"
+                                                 style="width:250px; height:200px">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h6 class="text-muted">{{ cart.item.category }}</h6>
+                                            <h6 class="text-black mb-0">{{ cart.item.name }}</h6>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex justify-content-end">
+                                            <a class="mr-2" href="{% url 'mainapp:decrease-cart' cart.item.slug %}">
+                                                -&nbsp;&nbsp;
+                                            </a>
+                                            {{ cart.quantity }}
+                                            <a class="ml-2" href="{% url 'mainapp:cart' cart.item.slug %}">
+                                                &nbsp;&nbsp;+
+                                            </a>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                            <h6 class="mb-0">{{ cart.get_total }} руб.</h6>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+
+                                    </div>
+                                    <hr class="my-4">
+                                    {% endfor %}
+
+                                    <div class="pt-5">
+                                        <h6 class="mb-0 d-flex justify-content-between"><a href="{% url 'mainapp:home' %}" class="text-body">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                 fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                                            </svg>
+                                            Вернуться к покупкам </a>
+                                            <a class="" href="{% url 'checkout:index' %}">
+                                                <button class="button button1">Заказать</button>
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

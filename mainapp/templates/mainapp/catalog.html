@@ -1,0 +1,39 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+.ah {
+    color: black !important;
+    text-decoration: none;
+    cursor:pointer;
+    font-family: first;
+    font-size:20px;
+    font-weight: lighter;
+}
+.ah:visited {
+        color: #8a2be2;
+}
+.ah:hover {
+        color: #f66d52 !important   ;
+        text-decoration: underline;
+}
+
+</style>
+
+
+<h3 class="title">Категории</h3>
+
+<div class="d-flex flex-wrap justify-content-center gap-4" style="padding:5rem; margin-bottom:4rem">
+    {% for category in categories %}
+    <div class="card me-4" style="width: 25rem;border:none;background-color:#FFFAFA;">
+        {% if category.image %}
+        <img class="card-img-top" src="{{ category.image.url }}" alt="Card image cap">
+        {% endif %}
+        <a class="text-center ah"  href="{% url 'mainapp:category' product.category.pk product.category.slug %}" style="margin-top:1rem">{{ category.title }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

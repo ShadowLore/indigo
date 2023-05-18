@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'first';
+    src: url("/static/fonts/Kardinal.ttf");
+}
+@font-face {
+    font-family: 'second';
+    src: url("/static/fonts/Lineyka.ttf");
+}
+@font-face {
+    font-family: 'third';
+    src: url("/static/fonts/Noah.ttf");
+}
+
+h3, h4, h5, h6, h1, h2{
+    font-family: second, iralic;
+}
+a{
+    font-family: second;
+}
+.title{
+    color:black;
+    font-size:2em;
+    font-weight: lighter;
+    text-align:center;
+    margin-top:6rem;
+    font-family: second, italic;
+}
+
+.text-pic{
+    position:absolute;
+    top:250px;
+    left:200px;
+    color:white;
+    -webkit-text-stroke-width: 1px;
+    margin-bottom: 35px;
+    text-align: left;
+
+}
+.undertext{
+    font-weight: 800;
+    font-size: 50px;
+    margin-top:1rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    text-align: left;
+    font-family: second, italic;
+}
+.undertext2{
+    font-size: 30px;
+    margin-bottom: 30px;
+    line-height: 18px;
+    text-align: left;
+    font-family: first, italic;
+}
+.text-pic2{
+position:absolute;
+    top:10px;
+    left:30px;
+    color:white;
+    font-size:1rem;
+    -webkit-text-stroke-width: 1px;
+
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    transition: 1s;
+
+}
+.grayscale:hover {
+    filter: grayscale(0);
+}

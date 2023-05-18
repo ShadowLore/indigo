@@ -1,0 +1,50 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+.ah {
+    color: black;
+    text-decoration: none;
+    cursor:pointer;
+    font-family: first;
+    font-size:20px;
+    font-weight: lighter;
+}
+.ah:visited {
+        color: #8a2be2;
+}
+.ah:hover {
+        color: #f66d52;
+        text-decoration: underline;
+}
+
+
+</style>
+
+
+<h3 class="title">Категории</h3>
+
+<div class="d-flex flex-wrap justify-content-center gap-4" style="padding:5rem; margin-bottom:4rem">
+    {% for category in categories %}
+    <div class="card me-4" style="width: 25rem;border:none;background-color:#FFFAFA;">
+        {% if category.image %}
+        <img class="card-img-top" src="{{ category.image.url }}" alt="Card image cap">
+        {% endif %}
+        <a class="text-center ah"  href="{% url 'mainapp:category-detail' object.id %}" style="margin-top:1rem">{{ category.title }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+    {% for product in products %}
+        <figure>
+            <img src="{{ article.get_thumbnail }}" width="200" alt="{{ article.title }}">
+        </figure>
+        <strong>{{ product.name }}</strong>
+        <p>{{ product.description }}</p>
+        <p><a href="{% url 'product_by_catalog' product.category.pk product.category.slug %}">{{ product.category.title }}</a></p>
+        <a href="{{ product.get_absolute_url }}">Перейти к полной статье</a>
+    {% endfor %}
+
+
+{% endblock %}

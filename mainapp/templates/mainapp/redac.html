@@ -1,0 +1,95 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+
+.button {
+  border: none;
+  color: white;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: #f44336;
+  color: white;
+  border: 2px solid red;
+
+  font-family: first, italic;
+}
+
+.button1:hover {
+  background-color: red;
+  color: white;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color:#3333ff;
+  color: white;
+  border: 2px solid blue;
+
+  font-family: first, italic;
+}
+
+.button2:hover {
+  background-color: blue;
+  color: white;
+}
+
+a{
+    text-decoration:none;
+}
+</style>
+
+
+<div class="container" style="padding:14vh">
+    <h1 class="d-flex justify-content-center">EDITOR'S CORNER</h1>
+    <div class="d-flex justify-content-between align-items-center container w-75"
+         style="margin-top:5vh; margin-bottom:5vh">
+
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/red.png'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Красная капсула</h5>
+                <p class="card-text text-center">Красная капсула символизировала выбор мучительной, но правды.</p>
+
+                <a class="d-flex justify-content-center" href="{% url 'mainapp:product-create' %}">
+                    <button class="button button1">Продукт</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'images/blue.png'%}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Синяя капсула</h5>
+                <p class="card-text text-center">Синяя капсула позволяла оставаться в сладостном неведении и дальше.</p>
+
+                <a class="d-flex justify-content-center" href="{% url 'mainapp:category-create' %}">
+                    <button class="button button2">Категория</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

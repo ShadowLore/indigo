@@ -1,0 +1,24 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div id="pages" align="center">
+
+            {% if products.has_previous %}
+            <a href="?page={{ products.previous_page_number }}" style="text-decoration:none; color:black">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ products.number }} of {{ products.paginator.num_pages }}.
+            </span>
+
+            {% if products.has_next %}
+            <a href="?page={{ products.next_page_number }}" style="text-decoration:none; color:black">Next</a>
+            {% endif %}
+        </div>
+
+
+
+
+{% endblock %}

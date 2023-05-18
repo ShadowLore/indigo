@@ -1,0 +1,56 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+.map {
+    padding: 40px 0;
+    text-align: center;
+    width:100%;
+}
+
+.container {
+
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 35px;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 20px;
+}
+
+a{
+    text-decoration:none;
+
+}
+
+</style>
+
+<div class="container">
+    <div style="padding:4rem;  margin-top:4rem">
+        <h3 class="text-center" style="margin-bottom:6rem">Контакты</h3>
+
+        <p>
+            Мы находим по адресам:
+        </p>
+
+        <p>г. Курган, ул. 6-й микрорайон, 15/1 </p>
+        <p>г .Курган, ул. Карла Маркса, 151/1</p>
+
+        <p>Группа ВКонтакте: <a href="https://vk.com/roga_i_kopita13">vk.com/roga_i_kopita13</a></p>
+
+        <p>Наш телефон: <span style="color:red;font-weight:cursive;">+7 (905) 852-60-90</span></p>
+
+        <section class="map">
+            <div class="">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2261.6508251694977!2d65.28049591275457!3d55.46875361372056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43b7bdef9dd4af45%3A0x5e1e586df87f99d0!2z0JzRj9GB0L3QvtC5INCm0LXQvdGC0YAgItCg0L7Qs9CwINCYINCa0L7Qv9GL0YLQsCI!5e0!3m2!1sru!2sru!4v1683978905884!5m2!1sru!2sru"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+{% endblock %}
