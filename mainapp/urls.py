@@ -15,12 +15,16 @@ from .views import (
     CategoryDeleteView,
     CategoryUpdateView,
     CategoryDetailView,
+
+    List_product,
 )
 
 app_name = 'mainapp'
 
 urlpatterns = [
     path('', views.home, name='home'),
+
+    path('list_product', List_product.as_view(), name='list_product'),
 
     path('about/', views.about, name='about'),
     path('about_delivery/', views.about_delivery, name='about_delivery'),

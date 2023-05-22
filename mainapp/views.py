@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from .filters import ProductFilter
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.views.generic import ListView
 
 from django.views.generic import (
     DetailView,
@@ -195,12 +196,11 @@ class Redac(View):
 
 
 # попытка фильтровать продукты по категориям
-def product_list(request, category_pk=None):
-    category = None
-    categories = Category.objects.all()
-    products = Product.objects.filter(available=True)
-    if category_pk:
-        category = get_object_or_404(Category, slug=category_pk)
-        products = products.filter(category=category)
-    context = {'category': category, 'categories': categories, 'products': products}
-    return render(request, 'shop/product/list.html', context)
+class List_product(ListView):
+    model = Product
+    template_name = 'mainapp/list_product.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = ProductFilter(self.request.GET, queryset=self.get_queryset())
+        return context

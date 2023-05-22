@@ -13,7 +13,7 @@
 
                         {{ form | crispy}}
                                        <div class="card-body">
-                    <a href="{% url 'checkout:order' %}" class="btn btn-primary float-right">Оплатить</a>
+                    <a href="{% url 'checkout:payment' %}" class="btn btn-primary float-right">Оплатить</a>
                 </div>
                     </form>
                 </div>
@@ -22,12 +22,12 @@
             <h4>Saved Address</h4>
             <div class="card mb-5" style="height: auto">
                 <div class="card-body">
-                    <p><b>Address :</b> {{ savedAddress.address }}</p>
-                    <p><b>Сard_num :</b> {{ savedAddress.card_num }}</p>
-                    <p><b>cvv :</b> {{ savedAddress.cvv }}</p>
+                    <p><b>Город :</b> {{ savedAddress.address }}</p>
+                    <p><b>Улица :</b> {{ savedAddress.card_num }}</p>
+                    <p><b>Телефон :</b> {{ savedAddress.cvv }}</p>
                 </div>
                 <div class="card-body">
-                    <a href="{% url 'checkout:order' %}" class="btn btn-primary float-right">Оплатить</a>
+                    <a href="{% url 'checkout:payment' %}" class="btn btn-primary float-right">Оплатить</a>
                 </div>
             </div>
             {% endif %}

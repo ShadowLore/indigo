@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 
 
+# МОДЕЛЬ пользователя
 class Customer(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Имя пользователя')
     is_active = models.BooleanField(default=True)

@@ -1,4 +1,5 @@
 {% load static %}
+{% load cart_tag %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -103,7 +104,7 @@ body{
                         <a href="{% url 'mainapp:contacts' %}" class="navigation__link underline-one text-center">Контакты</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="{% url 'mainapp:catalog'%}" class="navigation__link underline-one text-center">Каталог</a>
+                        <a href="{% url 'mainapp:list_product'%}" class="navigation__link underline-one text-center">Каталог</a>
                     </li>
 
                     {% if not request.user.is_authenticated %}
@@ -121,7 +122,8 @@ body{
                                   2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14
                                    14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
                             </svg>
-                            Cart
+                            <span class="badge badge-light">{{ request.user| cart_total }}</span>
+                            Корзина
                         </a>
                     </li>
                     <li class="nav-item dropdown navigation__item">
@@ -159,7 +161,7 @@ body{
                                 <input class="form-control me-2" type="search" placeholder="Поиск..."
                                        aria-label="Search"
                                        name="q">
-                                <button class="btn btn-outline-warning" type="submit">Search</button>
+                                <button class="btn btn-outline-warning" type="submit">Поиск</button>
                             </form>
                         </a>
                     </li>

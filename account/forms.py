@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+# форма автоизации
 class LoginForm(forms.ModelForm):
 
     password = forms.CharField(widget=forms.PasswordInput)
@@ -32,6 +33,7 @@ class LoginForm(forms.ModelForm):
         return self.cleaned_data
 
 
+# форма регистрации
 class RegistrationForm(forms.ModelForm):
 
     confirm_password = forms.CharField(widget=forms.PasswordInput)

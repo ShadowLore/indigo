@@ -43,7 +43,15 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_filters',
 ]
+
+
+STRIPE_SECRET_KEY = 'sk_test_51N8dHoDktWkjNp7TYMfQC816pslV5vD0f5viwkRLBAk34VrndsilmT5CvywcK8fYq8cCuhcXhicMMCCNeADTSRct007cP28Ow7'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51N8dHoDktWkjNp7TletngOhTGvGi6u78bi5iOKNeUgKYfehNkWrusfHJfMSgMwiOMT24bSugYSRAhFp3V7hnOKzT00SaAeRTUd'
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
