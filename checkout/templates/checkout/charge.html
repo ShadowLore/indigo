@@ -1,0 +1,10 @@
+{% extends 'mainapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-5 text-center" style="padding:10rem">
+  <h2 class="text-center">Спасибо за заказ</h2>
+  <a href="{% url 'mainapp:home' %}" class="btn btn-success">На главную</a>
+</div>
+
+{% endblock %}

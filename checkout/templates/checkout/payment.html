@@ -1,0 +1,20 @@
+{% extends 'mainapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-5 text-center" style="padding:10rem;margin-bottom:10rem;">
+  <h2>Оплата</h2>
+  <form action="{% url 'checkout:charge' %}" method="post">
+    {% csrf_token %}
+    <script
+      src="https://checkout.stripe.com/checkout.js"
+      class="stripe-button"
+      data-key="{{ key }}"
+      data-description="Оплата"
+      data-amount="{{ total }}"
+      data-locale="auto"
+    ></script>
+  </form>
+</div>
+
+{% endblock %}

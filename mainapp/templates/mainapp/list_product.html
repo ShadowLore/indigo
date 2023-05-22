@@ -1,0 +1,97 @@
+{% extends 'mainapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style>
+   @font-face {
+    font-family: 'third';
+    src: url("/static/fonts/Noah.ttf");
+}
+
+h3{
+    font-family: third, fantasy;
+}
+.card{
+    border: none;
+    background-color: #FFFAFA;
+}
+
+a{
+    text-decoration:none;
+    color:black;
+}
+.button {
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button1 {
+  background-color: #f44336;
+  color: white;
+  border: 2px solid red;
+  font-family: first, italic;
+}
+
+.button1:hover {
+  background-color: red;
+  color: white;
+}
+
+</style>
+<div class="container my-5" style="padding:6rem">
+    <h2 class="my-5">Продукты</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <form method="get">
+                {{ filter.form| crispy }}
+                <button type="submit" class="button button1">Найти</button>
+            </form>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                                <div class="d-flex flex-wrap justify-content-center gap-4" style="padding:3rem">
+                {% for product in filter.qs %}
+            <div class="card me-4" style="width: 18 rem;">
+                {% if product.image %}
+                <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap"
+                     style="width:250px; height:200px">
+                {% endif %}
+                <a href="{% url 'mainapp:product-detail' product.slug %}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ product.name }}</h5>
+                        <p class="card-text text-center">{{ product.price }} руб.</p>
+                    </div>
+                </a>
+            </div>
+
+                {% endfor %}
+                                            </div>
+            </div>
+        </div>
+
+
+        <div id="pages" align="center">
+
+            {% if products.has_previous %}
+            <a href="?page={{ products.previous_page_number }}" style="text-decoration:none; color:black">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ products.number }} из {{ products.paginator.num_pages }}
+            </span>
+
+            {% if products.has_next %}
+            <a href="?page={{ products.next_page_number }}" style="text-decoration:none; color:black">Next</a>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
