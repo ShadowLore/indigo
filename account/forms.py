@@ -37,7 +37,7 @@ class LoginForm(forms.ModelForm):
 class RegistrationForm(forms.ModelForm):
 
     confirm_password = forms.CharField(widget=forms.PasswordInput)
-    password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput, min_length=6)
     email = forms.EmailField(required=True)
 
     def __init__(self, *args, **kwargs):

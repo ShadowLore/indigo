@@ -31,11 +31,11 @@ class Cart(models.Model):
 
 # МОДЕЛЬ заказа
 class Order(models.Model):
-    order_items = models.ManyToManyField(Cart, verbose_name='Товарфы в заказе')
+    order_items = models.ManyToManyField(Cart, verbose_name='Товары в заказе')
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
-    ordered = models.BooleanField(default=False, verbose_name='Заказано')
+    ordered = models.BooleanField(default=False, verbose_name='Заказной')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
-    paymentId = models.CharField(max_length=200, blank=True, null=True, verbose_name='ID оплаты' )
+    paymentId = models.CharField(max_length=200, blank=True, null=True, verbose_name='ID оплаты')
     orderId = models.CharField(max_length=200, blank=True, null=True, verbose_name='ID заказа')
 
     def __str__(self):
@@ -49,5 +49,6 @@ class Order(models.Model):
         return total
 
     class Meta:
+        ordering = ('-created',)
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'

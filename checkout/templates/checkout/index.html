@@ -19,7 +19,7 @@
                 </div>
             </div>
             {% if savedAddress %}
-            <h4>Saved Address</h4>
+            <h4>Ранее вводимый адрес</h4>
             <div class="card mb-5" style="height: auto">
                 <div class="card-body">
                     <p><b>Город :</b> {{ savedAddress.address }}</p>
@@ -42,8 +42,8 @@
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <span class="float-left"><b>Order Total</b></span>
-                    <span class="float-right"><b>$ {{ order_total | floatformat:2 }}</b></span>
+                    <span class="float-left"><b>Всего: </b></span>
+                    <span class="float-right"><b>{{ order_total | floatformat:2 }} руб.</b></span>
                 </div>
             </div>
         </div>

@@ -93,10 +93,10 @@ class ProductDetailView(DetailView):
     model = Product
 
 
-# страница просомтра категории
+# страница просмотра категории
 class CategoryDetailView(DetailView):
     model = Category
-    template_name = 'mainapp/catalog/category.html'
+    template_name = 'mainapp/category.html'
     context_object_name = 'category'
     category = None
 

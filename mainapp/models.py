@@ -5,16 +5,16 @@ from django.contrib.auth.models import User
 
 # модель категории
 class Category(models.Model):
-    title = models.CharField(max_length=128, verbose_name='Название')
-    primaryCategory = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='category/%Y/%m/%d/', blank=True, verbose_name='Изображение')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
+    title = models.CharField(max_length=80, verbose_name='Название')
+    # primaryCategory = models.BooleanField(default=False) на будущее
+    # image = models.ImageField(upload_to='category/%Y/%m/%d/', blank=True, verbose_name='Изображение') на будущее
+    # author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("mainapp:category-detail", kwargs={'pk': self.pk})
+        return reverse("mainapp:list_product")
 
     class Meta:
         ordering = ('title',)
@@ -25,12 +25,12 @@ class Category(models.Model):
 # модель продукта
 class Product(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d/', blank=True, verbose_name='Изображение')
-    name = models.CharField(max_length=200, verbose_name='Название')
+    name = models.CharField(max_length=60, verbose_name='Название')
     slug = models.SlugField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     description = models.TextField(max_length=1000, verbose_name='Описание')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
+    # author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
 
     def __str__(self):
         return self.name
