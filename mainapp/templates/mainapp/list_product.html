@@ -44,6 +44,7 @@ a{
   color: white;
 }
 
+
 </style>
 <div class="container my-5" style="padding:6rem">
     <h2 class="my-5">Продукты</h2>
@@ -56,23 +57,23 @@ a{
         </div>
         <div class="col-md-9">
             <div class="row">
-                                <div class="d-flex flex-wrap justify-content-center gap-4" style="padding:3rem">
-                {% for product in filter.qs %}
-            <div class="card me-4" style="width: 18 rem;">
-                {% if product.image %}
-                <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap"
-                     style="width:250px; height:200px">
-                {% endif %}
-                <a href="{% url 'mainapp:product-detail' product.slug %}">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">{{ product.name }}</h5>
-                        <p class="card-text text-center">{{ product.price }} руб.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-4" style="padding:3rem">
+                    {% for product in filter.qs %}
+                    <div class="card me-4" style="width: 18 rem;">
+                        {% if product.image %}
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap"
+                             style="width:250px; height:200px">
+                        {% endif %}
+                        <a href="{% url 'mainapp:product-detail' product.slug %}">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ product.name }}</h5>
+                                <p class="card-text text-center">{{ product.price }} руб.</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
 
-                {% endfor %}
-                                            </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 

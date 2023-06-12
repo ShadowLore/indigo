@@ -9,7 +9,7 @@ User = get_user_model()
 class BillingAddress(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Название')
     address = models.CharField(max_length=80, verbose_name='Город')
-    card_num = models.IntegerField(max_length=100, verbose_name='Улица')
+    card_num = models.IntegerField(verbose_name='Улица')
     cvv = models.IntegerField(verbose_name='Телефон')
 
     def __str__(self):
