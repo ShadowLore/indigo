@@ -6,6 +6,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ListView
 
 from django.views.generic import (
+    ListView,
     DetailView,
     CreateView,
     UpdateView,
@@ -14,6 +15,7 @@ from django.views.generic import (
 from django.views import View
 
 from django.db.models import Q
+
 
 # главная страница
 
@@ -50,22 +52,7 @@ def search(request):
     }
     return render(request, 'mainapp/search_bar.html', context)
 
-# пагинатор, пока никуда не вошел, в планах он пойдет на страницу с продуктавми
-
-# def home(request):
-#   products = Product.objects.all().order_by('-id')[:5]
-#  paginator = Paginator(products, 6)
-# page = request.GET.get('page')
-# try:
-#   products = paginator.page(page)
-# except PageNotAnInteger:
-#     products = paginator.page(1)
-# except EmptyPage:
-#    products = paginator.page(paginator.num_pages)
-# vars = dict(
-#     products=products,
-# )
-# return render(request, 'mainapp/home.html', vars)
+    # пагинатор, пока никуда не вошел, в планах он пойдет на страницу с продуктавми
 
 
 # страница о нас
@@ -199,8 +186,13 @@ class Redac(View):
 class List_product(ListView):
     model = Product
     template_name = 'mainapp/list_product.html'
+    context_object_name = 'products'
+    ordering = ['-id']
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filter'] = ProductFilter(self.request.GET, queryset=self.get_queryset())
         return context
+
+

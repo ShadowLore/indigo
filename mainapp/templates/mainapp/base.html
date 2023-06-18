@@ -39,6 +39,8 @@
     transition: width 0.5s;  /* Время эффекта */
 }
 body{
+    min-height: 100%;
+    display: grid;
     background-color: #FFFAFA;
 }
 
@@ -68,6 +70,10 @@ body{
 
 
 
+
+
+
+
 </style>
 
 
@@ -84,20 +90,24 @@ body{
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-center">
                     <li class="navigation__item">
-                        <a href="{% url 'mainapp:home' %}" class="navigation__link navigation__link--is-active text-center">
+                        <a href="{% url 'mainapp:home' %}"
+                           class="navigation__link navigation__link--is-active text-center">
                             <span style="color:white;font-weight:bold;">Рога</span>
                             <span style="color:white;font-weight:bold;">&</span>
                             <span style="color:red;font-weight:bold;">Копыта</span>
                         </a>
                     </li>
                     <li class="navigation__item">
-                        <a href="{% url 'mainapp:home' %}" class="navigation__link underline-one text-center">Главная</a>
+                        <a href="{% url 'mainapp:home' %}"
+                           class="navigation__link underline-one text-center">Главная</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="{% url 'mainapp:about' %}" class="navigation__link underline-one text-center">О Магазине</a>
+                        <a href="{% url 'mainapp:about' %}" class="navigation__link underline-one text-center">О
+                            Магазине</a>
                     </li>
                     <li class="navigation__item">
-                        <a href="{% url 'mainapp:about_delivery' %}" class="navigation__link underline-one text-center">Доставка и
+                        <a href="{% url 'mainapp:about_delivery' %}" class="navigation__link underline-one text-center">Доставка
+                            и
                             Оплата</a>
                     </li>
                     <li class="navigation__item">
